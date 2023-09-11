@@ -7,7 +7,35 @@
         <Frame BackgroundColor="#aaaaaa" Padding="24" CornerRadius="0">
             <Label Text="{Binding PageTitle}" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
-        
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>  <!-- 0: Fill Lists Button -->
+                <RowDefinition Height="auto"/>  <!-- 1: List Caption Labels -->
+                <RowDefinition Height="100*"/>  <!-- 2: Lists -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>   <!-- 0: left space -->
+                <ColumnDefinition Width="50*"/>  <!-- 1: Auto size ListView -->
+                <ColumnDefinition Width="20"/>   <!-- 2: middle space -->
+                <ColumnDefinition Width="50*"/>  <!-- 3: Bound size ListView -->
+                <ColumnDefinition Width="20"/>   <!-- 4: right space -->
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="Fill Lists" Command="{Binding FillListsButtonCommandBinding}"/>
+            <Label Grid.Row="1" Grid.Column="1" Text="Auto size ListView"/>
+            <Label Grid.Row="1" Grid.Column="3" Text="Bound size ListView"/>
+
+            <ListView Grid.Row="2" Grid.Column="1">
+                <!-- TODO -->
+            </ListView>
+
+            <ListView Grid.Row="2" Grid.Column="3">
+                <!-- TODO -->
+            </ListView>
+
+        </Grid>
+
     </StackLayout>
 
 </ContentPage>
