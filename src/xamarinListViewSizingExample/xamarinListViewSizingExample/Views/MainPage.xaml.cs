@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace xamarinListViewSizingExample
+namespace xamarinListViewSizingExample.Views
 {
     public partial class MainPage : ContentPage
     {
