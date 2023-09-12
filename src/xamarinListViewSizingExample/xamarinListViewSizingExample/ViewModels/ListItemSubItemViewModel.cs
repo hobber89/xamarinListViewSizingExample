@@ -6,11 +6,14 @@ namespace xamarinListViewSizingExample.ViewModels
     {
         public string SubItemTitle => _model.SubItemTitle;
 
+        public ListItemWithSubItemsViewModel Parent;
+
         private ListItemSubItemModel _model;
 
-        public ListItemSubItemViewModel(ListItemSubItemModel model)
+        public ListItemSubItemViewModel(ListItemSubItemModel model, ListItemWithSubItemsViewModel parent)
         {
             _model = model;
+            Parent = parent;
         }
     }
 }

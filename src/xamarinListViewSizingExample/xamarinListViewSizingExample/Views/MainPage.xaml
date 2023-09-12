@@ -76,8 +76,54 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ListView Grid.Row="2" Grid.Column="3">
-                <!-- TODO -->
+            <ListView Grid.Row="2" Grid.Column="3" ItemsSource="{Binding ListItems}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BorderColor="Black">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>                           <!-- 0: Name -->
+                                        <RowDefinition Height="auto"/>                           <!-- 1: Description -->
+                                        <RowDefinition Height="{Binding SubItemsListHeight}"/>   <!-- 2: Subitems -->
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>  <!-- 0: Label -->
+                                        <ColumnDefinition Width="100*"/>  <!-- 1: Value -->
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Name:"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding ListItemTitle}"/>
+
+                                    <Label Grid.Row="1" Grid.Column="0" Text="Description:" Margin="0,0,5,0"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding ListItemDescription}" Margin="0,0,5,0"/>
+
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Sub items:" Margin="0,0,5,0"/>
+                                    <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding SubItems}">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <Frame BorderColor="Black" SizeChanged="Frame_SizeChanged">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="auto"/>  <!-- 0: Label -->
+                                                                <ColumnDefinition Width="100*"/>  <!-- 1: Value -->
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <Label Grid.Row="0" Grid.Column="0" Text="Name:"/>
+                                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding SubItemTitle}"/>
+                                                        </Grid>
+                                                    </Frame>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
 
         </Grid>

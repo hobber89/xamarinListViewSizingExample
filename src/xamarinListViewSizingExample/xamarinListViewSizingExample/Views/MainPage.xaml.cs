@@ -21,5 +21,14 @@ namespace xamarinListViewSizingExample.Views
 
             BindingContext = _viewModel;
         }
+
+        private void Frame_SizeChanged(object sender, EventArgs e)
+        {
+            Frame frame = sender as Frame;
+            if (frame.BindingContext == null)
+                return;
+
+            (frame.BindingContext as ListItemSubItemViewModel).Parent.Frame_SizeChanged(sender, e);
+        }
     }
 }
