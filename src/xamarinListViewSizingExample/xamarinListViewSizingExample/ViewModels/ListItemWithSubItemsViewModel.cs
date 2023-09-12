@@ -19,6 +19,8 @@ namespace xamarinListViewSizingExample.ViewModels
         }
         private double _subItemsListHeight = 1;
 
+        public double SubItemsListHeightWithFixHeightPerItem => SubItems.Count * 60;
+
         private ListItemWithSubItemsModel _model;
         private Dictionary<Guid, double> _viewsHeightMap = new Dictionary<Guid, double>();
 
