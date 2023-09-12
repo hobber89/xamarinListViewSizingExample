@@ -24,7 +24,10 @@ namespace xamarinListViewSizingExample.ViewModels
 
             for (int i = 1; i < 5; i++)
             {
-                ListItems.Add(new ListItemWithSubItemsViewModel(new ListItemWithSubItemsModel($"Item {i}", $"Description {i}")));
+                ListItemWithSubItemsModel item = new ListItemWithSubItemsModel($"Item {i}", $"Item has {i} sub items");
+                for (int j = 1; j <= i; j++)
+                    item.SubItems.Add(new ListItemSubItemModel($"Sub item {j} of item {i}"));
+                ListItems.Add(new ListItemWithSubItemsViewModel(item));
             }
         }
     }
