@@ -26,8 +26,32 @@
             <Label Grid.Row="1" Grid.Column="1" Text="Auto size ListView"/>
             <Label Grid.Row="1" Grid.Column="3" Text="Bound size ListView"/>
 
-            <ListView Grid.Row="2" Grid.Column="1">
-                <!-- TODO -->
+            <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ListItems}">
+                <ListView.ItemTemplate HorizontalOptions="Fill">
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BorderColor="Black">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>   <!-- 0: Name -->
+                                        <RowDefinition Height="auto"/>   <!-- 1: Description -->
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>  <!-- 0: Label -->
+                                        <ColumnDefinition Width="100*"/>  <!-- 1: Value -->
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Name:"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding ListItemTitle}"/>
+                                
+                                    <Label Grid.Row="1" Grid.Column="0" Text="Description:" Margin="0,0,5,0"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding ListItemDescription}" Margin="0,0,5,0"/>
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
 
             <ListView Grid.Row="2" Grid.Column="3">
