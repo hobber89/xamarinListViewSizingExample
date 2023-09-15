@@ -56,9 +56,8 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>  <!-- 0: Fill Lists Button -->
-                <RowDefinition Height="auto"/>  <!-- 1: List Caption Labels -->
-                <RowDefinition Height="100*"/>  <!-- 2: Lists -->
+                <RowDefinition Height="auto"/>  <!-- 0: List Caption Labels -->
+                <RowDefinition Height="100*"/>  <!-- 1: Lists -->
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>   <!-- 0: left space -->
@@ -72,13 +71,12 @@
                 <ColumnDefinition Width="20"/>   <!-- 8: right space -->
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Text="Fill Lists" Command="{Binding FillListsButtonCommandBinding}"/>
-            <Label Grid.Row="1" Grid.Column="1" Text="Auto size ListView" FontAttributes="Bold"/>
-            <Label Grid.Row="1" Grid.Column="3" Text="Bound size ListView" FontAttributes="Bold"/>
-            <Label Grid.Row="1" Grid.Column="5" Text="Fix height per item ListView" FontAttributes="Bold"/>
-            <Label Grid.Row="1" Grid.Column="7" Text="Single-Level ListView with Templates" FontAttributes="Bold"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="Auto size ListView" FontAttributes="Bold"/>
+            <Label Grid.Row="0" Grid.Column="3" Text="Bound size ListView" FontAttributes="Bold"/>
+            <Label Grid.Row="0" Grid.Column="5" Text="Fix height per item ListView" FontAttributes="Bold"/>
+            <Label Grid.Row="0" Grid.Column="7" Text="Single-Level ListView with Templates" FontAttributes="Bold"/>
 
-            <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ListItems}">
+            <ListView Grid.Row="1" Grid.Column="1" ItemsSource="{Binding ListItems}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -128,7 +126,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ListView Grid.Row="2" Grid.Column="3" ItemsSource="{Binding ListItems}">
+            <ListView Grid.Row="1" Grid.Column="3" ItemsSource="{Binding ListItems}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -182,7 +180,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ListView Grid.Row="2" Grid.Column="5" ItemsSource="{Binding ListItems}">
+            <ListView Grid.Row="1" Grid.Column="5" ItemsSource="{Binding ListItems}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -236,7 +234,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ListView Grid.Row="2" Grid.Column="7" x:Name="listView" ItemsSource="{Binding SingleLevelListItems}" ItemTemplate="{StaticResource listItemTemplateSelector}" />
+            <ListView Grid.Row="1" Grid.Column="7" x:Name="listView" ItemsSource="{Binding SingleLevelListItems}" ItemTemplate="{StaticResource listItemTemplateSelector}" />
         </Grid>
     </StackLayout>
 </ContentPage>

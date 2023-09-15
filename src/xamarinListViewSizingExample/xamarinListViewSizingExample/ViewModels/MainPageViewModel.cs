@@ -6,21 +6,20 @@ namespace xamarinListViewSizingExample.ViewModels
 {
     internal class MainPageViewModel : ViewModelBase
     {
-        public ButtonCommandBinding FillListsButtonCommandBinding { get; private set; }
-
-        public string PageTitle => "This page shows several variants of height definition on ListViews";
+        public string PageTitle => "This page shows several variants of height definition on ListViews in a Grid";
 
         public ObservableCollection<ListItemWithSubItemsViewModel> ListItems { get; private set; }
         public ObservableCollection<ViewModelBase> SingleLevelListItems { get; private set; }
 
         public MainPageViewModel()
         {
-            FillListsButtonCommandBinding = new ButtonCommandBinding(fillListsButtonCommand, true);
             ListItems = new ObservableCollection<ListItemWithSubItemsViewModel>();
             SingleLevelListItems = new ObservableCollection<ViewModelBase>();
+
+            fillLists();
         }
 
-        private void fillListsButtonCommand()
+        private void fillLists()
         {
             ListItems.Clear();
 
