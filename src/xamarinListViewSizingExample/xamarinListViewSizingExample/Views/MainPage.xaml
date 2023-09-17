@@ -65,7 +65,7 @@
                 <ColumnDefinition Width="20"/>   <!-- 2: middle space -->
                 <ColumnDefinition Width="25*"/>  <!-- 3: Bound size ListView -->
                 <ColumnDefinition Width="20"/>   <!-- 4: middle space -->
-                <ColumnDefinition Width="25*"/>  <!-- 5: Bound size ListView -->
+                <ColumnDefinition Width="25*"/>  <!-- 5: Fix height per item ListView -->
                 <ColumnDefinition Width="20"/>   <!-- 6: middle space -->
                 <ColumnDefinition Width="25*"/>  <!-- 7: Single-Level ListView with Templates-->
                 <ColumnDefinition Width="20"/>   <!-- 8: right space -->
@@ -143,7 +143,11 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Label Grid.Row="0" Grid.Column="0" Text="Name:"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding ListItemTitle}"/>
+                                    <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                        <Label Text="{Binding ListItemTitle}"/>
+                                        <Button Text="-20" Command="{Binding Subtract20FromSubItemsListHeightButtonCommandBinding}"/>
+                                        <Button Text="+20" Command="{Binding Add20ToSubItemsListHeightButtonCommandBinding}"/>
+                                    </StackLayout> 
 
                                     <Label Grid.Row="1" Grid.Column="0" Text="Description:" Margin="0,0,5,0"/>
                                     <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="0,0,5,0">
