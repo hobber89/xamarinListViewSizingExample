@@ -216,7 +216,7 @@
                                         <ListView.ItemTemplate>
                                             <DataTemplate>
                                                 <ViewCell>
-                                                    <Frame BorderColor="Black" SizeChanged="Frame_SizeChanged">
+                                                    <Frame BorderColor="Black">
                                                         <Grid>
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition Width="auto"/>  <!-- 0: Label -->
