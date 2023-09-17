@@ -46,7 +46,8 @@
                 </ViewCell>
 			</DataTemplate>
             <views:ListItemTemplateSelector x:Key="listItemTemplateSelector" ListItemTemplate="{StaticResource listItemTemplate}" SubListItemTemplate="{StaticResource subListItemTemplate}" />
-		</ResourceDictionary>
+            <views:NumberToGridLengthConverter x:Key="numberToGridLengthConverter" />
+        </ResourceDictionary>
 	</ContentPage.Resources>
 
     <StackLayout>
@@ -135,7 +136,7 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="20"/>                             <!-- 0: Name -->
                                         <RowDefinition Height="20"/>                             <!-- 1: Description -->
-                                        <RowDefinition Height="{Binding SubItemsListHeight}"/>   <!-- 2: Subitems -->
+                                        <RowDefinition Height="{Binding SubItemsListHeight, Converter={StaticResource numberToGridLengthConverter}}"/>   <!-- 2: Subitems -->
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>  <!-- 0: Label -->
@@ -193,7 +194,7 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="20"/>                                                 <!-- 0: Name -->
                                         <RowDefinition Height="20"/>                                                 <!-- 1: Description -->
-                                        <RowDefinition Height="{Binding SubItemsListHeightWithFixHeightPerItem}"/>   <!-- 2: Subitems -->
+                                        <RowDefinition Height="{Binding SubItemsListHeightWithFixHeightPerItem, Converter={StaticResource numberToGridLengthConverter}}"/>   <!-- 2: Subitems -->
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>  <!-- 0: Label -->
