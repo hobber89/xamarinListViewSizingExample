@@ -73,8 +73,8 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Row="0" Grid.Column="1" Text="Auto size ListView" FontAttributes="Bold"/>
-            <Label Grid.Row="0" Grid.Column="3" Text="Bound size ListView" FontAttributes="Bold"/>
-            <Label Grid.Row="0" Grid.Column="5" Text="Fix height per item ListView" FontAttributes="Bold"/>
+            <Label Grid.Row="0" Grid.Column="3" Text="Dynamic size depending on subItem's Frame height ListView" FontAttributes="Bold"/>
+            <Label Grid.Row="0" Grid.Column="5" Text="Fix 60 pixel height per subItem ListView" FontAttributes="Bold"/>
             <Label Grid.Row="0" Grid.Column="7" Text="Single-Level ListView with Templates" FontAttributes="Bold"/>
 
             <ListView Grid.Row="1" Grid.Column="1" ItemsSource="{Binding ListItems}">
@@ -100,7 +100,7 @@
                                     <Label Grid.Row="1" Grid.Column="1" Text="{Binding ListItemDescription}" Margin="0,0,5,0"/>
 
                                     <Label Grid.Row="2" Grid.Column="0" Text="Sub items:" Margin="0,0,5,0"/>
-                                    <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding SubItems}">
+                                    <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding SubItems}" BackgroundColor="LightGray">
                                         <ListView.ItemTemplate>
                                             <DataTemplate>
                                                 <ViewCell>
@@ -154,7 +154,7 @@
                                     </StackLayout>
 
                                     <Label Grid.Row="2" Grid.Column="0" Text="Sub items:" Margin="0,0,5,0"/>
-                                    <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding SubItems}" BackgroundColor="Aqua">
+                                    <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding SubItems}" BackgroundColor="LightGray">
                                         <ListView.ItemTemplate>
                                             <DataTemplate>
                                                 <ViewCell>
@@ -208,7 +208,7 @@
                                     </StackLayout>
 
                                     <Label Grid.Row="2" Grid.Column="0" Text="Sub items:" Margin="0,0,5,0"/>
-                                    <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding SubItems}">
+                                    <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding SubItems}" BackgroundColor="LightGray">
                                         <ListView.ItemTemplate>
                                             <DataTemplate>
                                                 <ViewCell>
