@@ -15,6 +15,13 @@ namespace xamarinListViewSizingExample.ViewModels
         public string ListItemDescription => _model.ListItemDescription;
         public ObservableCollection<ListItemSubItemViewModel> SubItems { get; private set; } = new ObservableCollection<ListItemSubItemViewModel>();
 
+        public double FrameHeight
+        {
+            get => _frameHeight;
+            set => SetProperty(ref _frameHeight, value);
+        }
+        private double _frameHeight = 1;
+
         public double SubItemsListHeight
         {
             get => _subItemsListHeight;
@@ -39,6 +46,8 @@ namespace xamarinListViewSizingExample.ViewModels
             Add20ToSubItemsListHeightButtonCommandBinding = new ButtonCommandBinding(add20ToSubItemsListHeightButtonCommand, true);
 
             fillSubItems();
+
+            Frame f = new Frame();
         }
 
         public void Frame_SizeChanged(object sender, EventArgs e)
@@ -60,6 +69,7 @@ namespace xamarinListViewSizingExample.ViewModels
             }
 
             SubItemsListHeight = Math.Max(1, totalHeight);
+            FrameHeight = SubItemsListHeight + 60;
         }
 
         private void fillSubItems()

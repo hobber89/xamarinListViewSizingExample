@@ -131,7 +131,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame BorderColor="Black">
+                            <Frame BorderColor="Black" HeightRequest="{Binding FrameHeight}"> <!-- HeightRequest="250" BIND THIS -->
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="20"/>                             <!-- 0: Name -->
@@ -158,7 +158,7 @@
                                     </StackLayout>
 
                                     <Label Grid.Row="2" Grid.Column="0" Text="Sub items:" Margin="0,0,5,0"/>
-                                    <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding SubItems}">
+                                    <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding SubItems}" BackgroundColor="Aqua">
                                         <ListView.ItemTemplate>
                                             <DataTemplate>
                                                 <ViewCell>
