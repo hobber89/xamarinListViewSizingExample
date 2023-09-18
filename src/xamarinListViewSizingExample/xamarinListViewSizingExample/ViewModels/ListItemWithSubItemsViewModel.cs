@@ -8,9 +8,6 @@ namespace xamarinListViewSizingExample.ViewModels
 {
     internal class ListItemWithSubItemsViewModel : ViewModelBase
     {
-        public ButtonCommandBinding Subtract20FromSubItemsListHeightButtonCommandBinding { get; private set; }
-        public ButtonCommandBinding Add20ToSubItemsListHeightButtonCommandBinding { get; private set; }
-
         public string ListItemTitle => _model.ListItemTitle;
         public string ListItemDescription => _model.ListItemDescription;
         public ObservableCollection<ListItemSubItemViewModel> SubItems { get; private set; } = new ObservableCollection<ListItemSubItemViewModel>();
@@ -42,8 +39,6 @@ namespace xamarinListViewSizingExample.ViewModels
         public ListItemWithSubItemsViewModel(ListItemWithSubItemsModel model)
         {
             _model = model;
-            Subtract20FromSubItemsListHeightButtonCommandBinding = new ButtonCommandBinding(subtract20FromSubItemsListHeightButtonCommand, true);
-            Add20ToSubItemsListHeightButtonCommandBinding = new ButtonCommandBinding(add20ToSubItemsListHeightButtonCommand, true);
 
             fillSubItems();
 
@@ -69,7 +64,9 @@ namespace xamarinListViewSizingExample.ViewModels
             }
 
             SubItemsListHeight = Math.Max(1, totalHeight);
-            FrameHeight = SubItemsListHeight + 60;
+            // The rest of the frame's content has a static height of 40 (2 rows with Height="20")
+            // => Define SubItemsListHeight + 40 as height for Frame
+            FrameHeight = SubItemsListHeight + 40;
         }
 
         private void fillSubItems()
@@ -81,18 +78,6 @@ namespace xamarinListViewSizingExample.ViewModels
             }
 
             SubItemsListHeightWithFixHeightPerItem = SubItems.Count * 60;
-        }
-
-        private void subtract20FromSubItemsListHeightButtonCommand()
-        {
-            SubItemsListHeight -= 20;
-            SubItemsListHeightWithFixHeightPerItem -= 20;
-        }
-
-        private void add20ToSubItemsListHeightButtonCommand()
-        {
-            SubItemsListHeight += 20;
-            SubItemsListHeightWithFixHeightPerItem += 20;
         }
     }
 }
